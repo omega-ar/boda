@@ -22,9 +22,9 @@ body{font-family:var(--font-main);background:var(--marfil);color:var(--oliva);ov
 .envelope-container:hover .envelope-flap{transform:rotateX(180deg)}
 .envelope-body{position:absolute;bottom:0;left:0;width:100%;height:85%;display:flex;align-items:center;justify-content:center}
 .rings svg{display:block}
-.names{font-size:42px;color:var(--oliva);margin-bottom:12px;font-weight:700}
-.subtitle{color:var(--eucalipto);font-size:24px;margin-bottom:12px;font-weight: 500;}
-.instruction{color:var(--oliva);font-size:22px;opacity:.9;margin-top:20px;font-weight: 400;}
+.names{font-size:52px;color:var(--oliva);margin-bottom:15px;font-weight:700;letter-spacing: 1px;}
+.subtitle{color:var(--eucalipto);font-size: 28px;margin-bottom:15px;font-weight: 500;}
+.instruction{color:var(--oliva);font-size:24px;opacity:.9;margin-top:25px;font-weight: 400;}
 
 /* INVITE */
 .invite{position:fixed; inset:0; background:var(--blanco); display:none; overflow-y:auto; scroll-behavior:smooth}
@@ -155,36 +155,113 @@ input, select{padding:12px 14px;border:1px solid var(--beige);border-radius:8px;
 .hashtag{font-size:24px;color:var(--beige);margin-bottom:6px}
 
 /* RESPONSIVE */
-@media (max-width:768px){
-  .content-box{padding:24px;border-radius:12px}
-  .names-inline{flex-direction:column;gap:6px}
-  .bride-name,.groom-name{font-size:34px}
-  .section-connector{height:90px}
-  .footer-text{font-size:32px}
+@media (max-width: 768px) {
+  .content-box {
+    padding: 24px;
+    border-radius: 12px;
+  }
+  .names-inline {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .bride-name, .groom-name {
+    font-size: 34px;
+  }
+  .section-connector {
+    height: 90px;
+  }
+  .footer-text {
+    font-size: 32px;
+  }
   .footer-content .bride-name,
-  .footer-content .groom-name{font-size:32px}
-  .footer-content .and-symbol{font-size:28px}
-  .hashtag{font-size:18px}
-  .main-footer{padding:80px 20px}
-  .photo-section{background-size: contain;}
-  .hero-section{background-attachment: scroll;}
-  .gallery-grid {grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important;}
-  .gallery-item {aspect-ratio: 1 / 1 !important;}
-  .gallery-item img {width: 100% !important; height: 100% !important; object-fit: cover !important;}
+  .footer-content .groom-name {
+    font-size: 32px;
+  }
+  .footer-content .and-symbol {
+    font-size: 28px;
+  }
+  .hashtag {
+    font-size: 18px;
+  }
+  .main-footer {
+    padding: 80px 20px;
+  }
+  .photo-section {
+    background-size: contain;
+  }
+  .hero-section {
+    background-attachment: scroll;
+    background-size: cover;
+  }
   
-  /* Forzar que las imágenes se carguen */
-  .gallery-section {min-height: auto !important; padding: 40px 0 !important;}
+  /* GALERÍA MÓVIL - ESTO ES CLAVE */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .gallery-item {
+    aspect-ratio: 1 / 1 !important;
+  }
+  .gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  #section6 {
+    min-height: auto !important;
+    padding: 40px 0 !important;
+  }
+  
+  /* LETRAS DEL SOBRE EN MÓVIL */
+  .names {
+    font-size: 42px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+  .instruction {
+    font-size: 20px;
+  }
 }
 
-@media (max-width:480px){
-  .parents-grid{flex-direction:column;gap:20px}
-  .location-card{min-width:100%}
-  .confirm-buttons{flex-direction:column}
-  .footer-text{font-size:28px}
+@media (max-width: 480px) {
+  .parents-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .location-card {
+    min-width: 100%;
+  }
+  .confirm-buttons {
+    flex-direction: column;
+  }
+  .footer-text {
+    font-size: 28px;
+  }
   .footer-content .bride-name,
-  .footer-content .groom-name{font-size:28px}
-  .footer-content .and-symbol{font-size:24px}
-  .gallery-grid {grid-template-columns: 1fr !important; gap: 6px !important;}
+  .footer-content .groom-name {
+    font-size: 28px;
+  }
+  .footer-content .and-symbol {
+    font-size: 24px;
+  }
+  
+  /* GALERÍA MÓVIL PEQUEÑO */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  
+  /* LETRAS DEL SOBRE EN MÓVIL PEQUEÑO */
+  .names {
+    font-size: 36px;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+  .instruction {
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1600px) {
@@ -199,19 +276,12 @@ input, select{padding:12px 14px;border:1px solid var(--beige);border-radius:8px;
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    background-attachment: scroll;
-    background-size: cover;
-  }
-}
-
 @supports (-webkit-touch-callout: none) {
-    .photo-section,
-    .hero-section,
-    .confirmation-section {
-        background-attachment: scroll !important;
-        background-position: center !important;
-        background-size: cover !important;
-    }
+  .photo-section,
+  .hero-section,
+  .confirmation-section {
+    background-attachment: scroll !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
 }
