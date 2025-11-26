@@ -168,6 +168,12 @@ input, select{padding:12px 14px;border:1px solid var(--beige);border-radius:8px;
   .main-footer{padding:80px 20px}
   .photo-section{background-size: contain;}
   .hero-section{background-attachment: scroll;}
+  .gallery-grid {grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important;}
+  .gallery-item {aspect-ratio: 1 / 1 !important;}
+  .gallery-item img {width: 100% !important; height: 100% !important; object-fit: cover !important;}
+  
+  /* Forzar que las imágenes se carguen */
+  .gallery-section {min-height: auto !important; padding: 40px 0 !important;}
 }
 
 @media (max-width:480px){
@@ -178,6 +184,7 @@ input, select{padding:12px 14px;border:1px solid var(--beige);border-radius:8px;
   .footer-content .bride-name,
   .footer-content .groom-name{font-size:28px}
   .footer-content .and-symbol{font-size:24px}
+  .gallery-grid {grid-template-columns: 1fr !important; gap: 6px !important;}
 }
 
 @media (min-width: 1600px) {
