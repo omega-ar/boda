@@ -17,6 +17,31 @@ openEnvelope.addEventListener("click", () => {
   }, 450);
 });
 
+// Música de fondo
+const backgroundMusic = document.getElementById("backgroundMusic");
+
+// Reproducir música cuando se abra la invitación
+openEnvelope.addEventListener("click", () => {
+    // Intentar reproducir música (puede requerir interacción del usuario)
+    backgroundMusic.play().catch(error => {
+        console.log("La reproducción automática fue bloqueada:", error);
+    });
+    
+    heroEnvelope.classList.add("hidden");
+    setTimeout(() => {
+        invite.classList.add("visible");
+        invite.setAttribute("aria-hidden", "false");
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            const s1 = document.getElementById("section1");
+            if (s1) s1.classList.add("active");
+        }, 300);
+    }, 450);
+});
+
+// Control de volumen (opcional)
+backgroundMusic.volume = 0.3; // 30% volumen
+
 // Observer para animaciones por seccion
 const observerOptions = { root: null, rootMargin: "0px", threshold: 0.3 };
 const observer = new IntersectionObserver((entries) => {
