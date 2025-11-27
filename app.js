@@ -27,16 +27,11 @@ const observer = new IntersectionObserver((entries) => {
       // Si es sección de contenido, activar hijos con retrasos
       if (entry.target.classList.contains("content-section")) {
         const timelineItems = entry.target.querySelectorAll(".timeline-item");
-        const galleryItems = entry.target.querySelectorAll(".gallery-item");
         const locationCards = entry.target.querySelectorAll(".location-card");
         const formElements = entry.target.querySelectorAll("input, select, .submit-btn, .floating");
 
         timelineItems.forEach((item, index) => {
           setTimeout(() => { item.style.transitionDelay = `${index * 0.08}s`; item.classList.add("active"); }, 200);
-        });
-
-        galleryItems.forEach((item, index) => {
-          setTimeout(() => { item.style.transitionDelay = `${index * 0.04}s`; item.classList.add("active"); }, 240);
         });
 
         locationCards.forEach((card, index) => {
@@ -56,18 +51,7 @@ document.querySelectorAll(".content-section, .photo-section").forEach((s) => obs
 
 // Scroll handler para efectos de foto/parallax/fade
 window.addEventListener("scroll", () => {
-  const fixedPhoto = document.querySelector(".fixed-photo");
-  if (fixedPhoto) {
-    const rect = fixedPhoto.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const visibleRatio = Math.min(Math.max((rect.bottom - vh * 0.15) / (rect.height + vh * 0.3), 0), 1);
-    fixedPhoto.style.opacity = `${Math.max(0.18, visibleRatio)}`;
-    fixedPhoto.style.transform = `scale(${1 - (1 - visibleRatio) * 0.02})`;
-    if (visibleRatio < 0.25) fixedPhoto.classList.add("fade-out");
-    else fixedPhoto.classList.remove("fade-out");
-  }
-
-  // parallax for other photos (background position change)
+  // parallax for photos (background position change)
   document.querySelectorAll(".parallax-photo").forEach((sec) => {
     const r = sec.getBoundingClientRect();
     const speed = 0.2;
